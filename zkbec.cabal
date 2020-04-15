@@ -1,0 +1,111 @@
+name:                zkbec
+version:             0.1.0.0
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+    hs-source-dirs: src
+    exposed-modules:
+        Data.Field
+        Data.Field.F17
+        Zkbec.Prelude
+        Zkbec.Language.Environment
+        Zkbec.Language.Var
+        Zkbec.Language.Core
+        Zkbec.Language.Evaluator
+        Zkbec.Language.Generator
+        Zkbec.Language.Parser
+        Zkbec.Language.Printer
+        Zkbec.Compiler.Compile
+        Zkbec.Compiler.Evaluate
+        Zkbec.Compiler.LinComb
+        Zkbec.Compiler.Pretty
+        Zkbec.Compiler.Utils
+        Zkbec.Compiler.VarNames
+        Zkbec.Examples.ExprGroup
+        Zkbec.Examples.Utils
+    build-depends:
+        base >= 4.7 && < 5,
+        transformers,
+        mtl,
+        containers,
+        galois-field,
+        semirings,
+        hashable,
+        unordered-containers,
+        vector,
+        megaparsec,
+        mmorph,
+        parser-combinators,
+        interpolate,
+        text,
+        lens,
+        free,
+        random,
+        QuickCheck,
+        QuickCheck-GenT,
+        quickcheck-instances,
+        quiet
+    default-language: Haskell2010
+    default-extensions:
+        MultiParamTypeClasses, FlexibleContexts, FlexibleInstances
+        ScopedTypeVariables, ConstraintKinds, DefaultSignatures
+        GADTs, DataKinds, PolyKinds, RankNTypes, TypeFamilies, FunctionalDependencies
+        DeriveFunctor, DeriveFoldable, DeriveTraversable, DeriveGeneric, DeriveDataTypeable
+        DerivingStrategies, GeneralizedNewtypeDeriving, DeriveAnyClass
+        DerivingVia, StandaloneDeriving
+        EmptyCase, LambdaCase, BangPatterns, MultiWayIf, TupleSections, MagicHash
+        TypeOperators, PatternSynonyms, TypeApplications
+        OverloadedStrings, StrictData
+    ghc-options:
+        -Wall
+        -Wincomplete-uni-patterns -Wincomplete-record-updates
+        -Wredundant-constraints -Widentities
+
+test-suite zkbec-test
+    type: exitcode-stdio-1.0
+    main-is: Main.hs
+    hs-source-dirs: test
+    other-modules:
+        Language.Textual
+        Compiler.Evaluation
+        Compiler.FakeIntField
+        Compiler.Golden
+        Compiler.Utils
+    default-language: Haskell2010
+    build-depends:
+        zkbec,
+        base >= 4.7 && < 5,
+        mtl,
+        containers,
+        QuickCheck,
+        QuickCheck-GenT,
+        filepath,
+        directory,
+        bytestring,
+        random,
+        Glob,
+        tasty,
+        tasty-golden,
+        tasty-hunit,
+        tasty-quickcheck
+    default-extensions:
+        MultiParamTypeClasses, FlexibleContexts, FlexibleInstances
+        ScopedTypeVariables, ConstraintKinds, DefaultSignatures
+        GADTs, DataKinds, PolyKinds, RankNTypes, TypeFamilies, FunctionalDependencies
+        DeriveFunctor, DeriveFoldable, DeriveTraversable, DeriveGeneric, DeriveDataTypeable
+        DerivingStrategies, GeneralizedNewtypeDeriving, DeriveAnyClass
+        DerivingVia, StandaloneDeriving
+        EmptyCase, LambdaCase, BangPatterns, MultiWayIf, TupleSections, MagicHash
+        TypeOperators, PatternSynonyms, TypeApplications
+        OverloadedStrings, StrictData
+    ghc-options:
+        -threaded -rtsopts -with-rtsopts=-N
+        -Wall
+        -Wincomplete-uni-patterns -Wincomplete-record-updates
+        -Wredundant-constraints -Widentities
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/zkbec

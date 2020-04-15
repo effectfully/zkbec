@@ -1,0 +1,13 @@
+resolver: lts-13.26
+
+packages:
+- .
+
+extra-deps:
+- QuickCheck-GenT-0.2.0
+- poly-0.3.3.0
+- semirings-0.5.2
+- galois-field-1.0.1
+- bitvec-1.0.2.0
+- vector-algorithms-0.8.0.3
+- quiet-0.2
